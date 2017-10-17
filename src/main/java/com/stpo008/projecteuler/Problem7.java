@@ -18,12 +18,11 @@ public class Problem7 {
 
     private static List<Integer> littlePrimes = Arrays.asList(new Integer[] {2, 3, 5, 7, 11, 13});
 
-
     public static void main(String[] args) {
         int primeCount = 0;
         int currentNumber = 1;
         int targetPrimeCount = 10001;
-        while(primeCount <= 10001) {
+        while(primeCount <= targetPrimeCount) {
             currentNumber++;
             if(checkPrime(currentNumber)) {
                 if(!isCarmichaelNumber(currentNumber)) {
