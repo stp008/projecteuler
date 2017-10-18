@@ -14,14 +14,17 @@ public class Problem7 {
             172081, 188461, 252601, 278545, 294409, 314821,
             334153, 340561, 399001, 410041, 449065, 488881, 512461});
 
-    private static List<Integer> fermatIntegers = Arrays.asList(new Integer[] {5, 7, 13});
+    private static List<Integer> fermatIntegers = Arrays.asList(new Integer[] {3, 5, 7, 13});
 
     private static List<Integer> littlePrimes = Arrays.asList(new Integer[] {2, 3, 5, 7, 11, 13});
 
     public static void main(String[] args) {
+        long start;
+        long finish;
+        int targetPrimeCount = 700000;
+        start = System.currentTimeMillis();
         int primeCount = 0;
         int currentNumber = 1;
-        int targetPrimeCount = 10001;
         while(primeCount <= targetPrimeCount) {
             currentNumber++;
             if(checkPrime(currentNumber)) {
@@ -34,6 +37,14 @@ public class Problem7 {
                 break;
             }
         }
+        finish = System.currentTimeMillis();
+        System.out.println("1. Execution time: " + (finish - start));
+
+        start = System.currentTimeMillis();
+        System.out.println(nthPrime(targetPrimeCount));
+        finish = System.currentTimeMillis();
+        System.out.println("2. Execution time: " + (finish - start));
+
     }
 
     private static boolean checkPrime(Integer n) {
@@ -65,4 +76,30 @@ public class Problem7 {
     private static boolean isCarmichaelNumber(int n) {
         return carmichaelNumbers.contains(n);
     }
+
+    ////////\\\\\\\
+
+    public static long nthPrime(long n) {
+        int numberOfPrimes = 0;
+        long prime = 1;
+
+        while (numberOfPrimes < n) {
+            prime++;
+            if (isPrime(prime)) {
+                numberOfPrimes++;
+            }
+        }
+        return prime;
+    }
+
+    /* returns true if parameter n is a prime number, false if composite or neither */
+    public static boolean isPrime(long n) {
+        if (n < 2) return false;
+        else if (n == 2) return true;
+        for (int i = 2; i < Math.pow(n, 0.5) + 1; i++)
+            if (n % i == 0)
+                return false;
+        return true;
+    }
+
 }
