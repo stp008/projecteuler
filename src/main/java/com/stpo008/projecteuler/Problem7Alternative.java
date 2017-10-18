@@ -6,21 +6,24 @@ package com.stpo008.projecteuler;
  */
 public class Problem7Alternative {
     public static void main(String[] args) {
-        int targetPrimeCount = 10001;
-        int primeCount = 0;
+        System.out.println(getPrime(10001));
+    }
+
+    public static long getPrime(int primeCount) {
+        int currentPrimeCount = 0;
         long currentNumber = 1;
 
-        while (primeCount < targetPrimeCount) {
+        while (currentPrimeCount < primeCount) {
             currentNumber++;
             if (checkPrime(currentNumber)) {
-                primeCount++;
+                currentPrimeCount++;
             }
         }
 
-        System.out.println(currentNumber);
+        return currentNumber;
     }
 
-    public static boolean checkPrime(long n) {
+    private static boolean checkPrime(long n) {
         if (n < 2)
             return false;
 
