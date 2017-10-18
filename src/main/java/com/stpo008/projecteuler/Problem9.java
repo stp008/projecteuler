@@ -11,6 +11,22 @@ package com.stpo008.projecteuler;
  */
 public class Problem9 {
     public static void main(String[] args) {
+        System.out.println(getTripletProduct(1000));
+    }
 
+    public static double getTripletProduct(double sum) {
+        for(int a = 1; a < sum; a++) {
+            for(int b = 2; b < sum; b++) {
+                for(int c = 3; c < sum; c++) {
+                    if(Math.pow(a, 2) + Math.pow(b, 2) == Math.pow(c, 2)) {
+                        if(a + b + c == sum) {
+                            return a * b * c;
+                        }
+                    }
+                }
+            }
+        }
+
+        return -1;
     }
 }

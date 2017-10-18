@@ -6,7 +6,6 @@ package com.stpo008.projecteuler;
  */
 public class Problem3 {
     public static void main(String[] args) {
-        System.out.println((10 * 10) % 4);
         long sourceNumber = 600851475143L;
         for(long i = 2; i < sourceNumber; i++) {
                 if(sourceNumber % i == 0) {
