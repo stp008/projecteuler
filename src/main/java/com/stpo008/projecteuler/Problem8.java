@@ -64,9 +64,7 @@ public class Problem8 {
                 }
 
                 candidate *= Character.getNumericValue(number.charAt(j));
-                System.out.println("Multiplication with char " + number.charAt(j));
             }
-            System.out.println("Cand: " + candidate);
             if(candidate > maxProduct)
                 maxProduct = candidate;
         }
